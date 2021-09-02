@@ -113,7 +113,7 @@ exports.updateuser = (req,res) => {
         lastname,
         email,
         contact,
-        // birthdate,
+        birthdate,
         gender,
         status,
         year,
@@ -123,7 +123,7 @@ exports.updateuser = (req,res) => {
         zip
     } = req.body;
 
-    db.query(`UPDATE student_admission SET firstname = '${firstname}', middlename = '${middlename}', lastname = '${lastname}', email = '${email}', contact = '${contact}', gender = '${gender}', status = '${status}', year = '${year}', course = '${course}', address = '${address}', city = '${city}', zip = '${zip}' where email = '${email}'`, (err,result) => {
+    db.query(`UPDATE student_admission SET firstname = '${firstname}', middlename = '${middlename}', lastname = '${lastname}', email = '${email}', contact = '${contact}', birthdate = '${birthdate}', gender = '${gender}', status = '${status}', year = '${year}', course = '${course}', address = '${address}', city = '${city}', zip = '${zip}' where email = '${email}'`, (err,result) => {
         if (err) throw err;
         console.log(result)
         db.query(`SELECT * FROM student_admission`, (err, result) => {
@@ -182,7 +182,6 @@ exports.adduser = (req,res) => {
             if (err) {console.log(err)}
             else {
                 console.log(result);
-                // return res.render('addform', {message: 'Record has been added'});
                 db.query(`SELECT * FROM student_admission`, (err, result) => {
                     if (err) throw err;
                     res.render('adminlistadmissions', {title: 'List of Users', user: result});
@@ -208,120 +207,3 @@ exports.studentlist = (req,res) => {
 }
 
 
-// ADMISSION FORM GET AND POST
-// exports.admissionform = (req,res) => {
-//     const email = req.params.email;
-
-//     db.query(`SELECT * from user_list where email = ?`, [email], (err, result) => {
-//         if (err) throw err;
-//         res.render('admissionform', {title: 'Enroll Now', user: result[0]});
-//     });
-// };
-
-// exports.admissionsubmit = (req,res) => {
-//     console.log(req.body);
-
-//     const {
-//         firstname,
-//         middlename,
-//         lastname,
-//         email,
-//         contact,
-//         birthdate,
-//         gender,
-//         status,
-//         year,
-//         course,
-//         address,
-//         city,
-//         zip
-//     } = req.body;
-
-//     db.query(`SELECT email FROM user_list where email = ?`, [email], async (err, result) => {
-//         if (err) {console.log(err)}
-//         else if (!result) {
-//             return res.render('admissionform', {message: 'Email is not registered. Please use the same email.'});
-//         } else {
-//         db.query(`INSERT into student_admission SET ?`, 
-//         {
-//             firstname: firstname,
-//             middlename: middlename,
-//             lastname: lastname,
-//             email: email,
-//             contact: contact,
-//             birthdate: birthdate,
-//             gender: gender,
-//             status: status,
-//             year: year,
-//             course: course,
-//             address: address,
-//             city: city,
-//             zip: zip
-//         }, (err,result) => {
-//             if (err) {console.log(err)}
-//             else {
-//                 console.log(result);
-//                 return res.render('admissionform', {message: 'Admission form submitted'});
-//             };
-//            // res.render('studentprofile2', {user: result[0]});
-//         });
-//         }
-//     });
-// }
-
-// exports.enrollment = (req,res) => {
-//     console.log(req.body);
-
-//     const {
-//         firstname,
-//         middlename,
-//         lastname,
-//         email,
-//         contact,
-//         birthdate,
-//         gender,
-//         status,
-//         year,
-//         course,
-//         address,
-//         city,
-//         zip
-//     } = req.body;
-
-//     db.query(`SELECT email FROM student_admission where email = ?`, [email], async (err, result) => {
-//         // if (err) {console.log(err)}
-//         // else if (!result) {
-//         //     console.log(result)
-//         //     return res.render('admissionform', {message: 'Email is not registered. Please use the same email in account sign-up.'});
-//         // } 
-//         if (err) {console.log(err)}
-//         else if (result.length > 0) {
-//             console.log(result);
-//             return res.render('enrollment', {message: 'Email entered is already in use'});
-//         }
-//         db.query(`INSERT into student_admission SET ?`, 
-//         {
-//             firstname: firstname,
-//             middlename: middlename,
-//             lastname: lastname,
-//             email: email,
-//             contact: contact,
-//             birthdate: birthdate,
-//             gender: gender,
-//             status: status,
-//             year: year,
-//             course: course,
-//             address: address,
-//             city: city,
-//             zip: zip
-//         }, (err,result) => {
-//             if (err) {console.log(err)}
-//             else {
-//                 console.log(result);
-//                 return res.render('enrollment', {message: 'Admission form submitted'});
-//             };
-//            // res.render('studentprofile2', {user: result[0]});
-//         });
-//         }
-//     );
-// }
