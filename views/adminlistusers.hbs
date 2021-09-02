@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/admin.css" rel="stylesheet">
+    <title>Admin List</title>
+</head>
+<body>
+    <div class="p-3 container-fluid bg-info d-flex justify-content-end">
+        <a href="/login" class="mx-5 text-decoration-none text-white"> Logout </a>
+    </div>
+
+    <div class="container m-3 p-5 ">
+        <h4>{{title}}</h4>
+
+        <div class="mb-4 container-fluid d-flex justify-content-end">
+            <button class="mx-3 px-3 btn btn-danger border-0" value="Back" onclick="history.back()" > Back </button>
+            {{!-- <button class="btn btn-info border-0">
+                    <a href="/auth/addform/{{this.email}}" class="text-white text-decoration-none">Add Record</a>
+            </button>  --}}
+        </div>
+
+        
+        {{#each user}}
+        <table class="table table-white table-hover">
+            <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Access</th>
+            <tr>
+                    <td>{{this.firstname}}</td>
+                    <td>{{this.lastname}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.access}}</td>
+            </tr>
+        </table>
+        {{/each}}
+    </div>
+</body>
+</html>

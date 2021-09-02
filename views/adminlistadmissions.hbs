@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/admin.css" rel="stylesheet">
+    <title>Student Admissions</title>
+
+</head>
+<body>
+    <div class="p-3 container-fluid bg-info d-flex justify-content-end">
+        <a href="/login" class="mx-5 text-white text-decoration-none"> Logout </a>
+    </div>
+
+    
+    
+    <div class="container m-3 p-5">
+    <h4>{{title}}</h4>
+
+  
+    <div class="mb-4 container-fluid d-flex justify-content-end">
+        <button class="mx-3 px-3 btn btn-danger border-0" value="Back" onclick="history.back()" > Back </button>
+        <button class="btn btn-info border-0">
+                <a href="/auth/addform/{{this.email}}" class="text-white text-decoration-none">Add Record</a>
+        </button> 
+    </div>
+      
+    <table class="table table-white bg-white table-hover">
+        <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            {{!-- <th>Birthdate</th>
+            <th>Gender</th>
+            <th>Contact</th> --}}
+            <th>Status</th>
+            <th>Year</th>
+            <th>Course</th>
+            {{!-- <th>Address</th>
+            <th>City</th>
+            <th>Zip Code</th> --}}
+            <th>Action</th>
+        </tr>
+        {{#each user}}
+        <tr>
+            <td>{{this.firstname}}</td>
+            <td>{{this.middlename}}</td>
+            <td>{{this.lastname}}</td>
+            <td>{{this.email}}</td>
+            {{!-- <td>{{this.birthdate}}</td>
+            <td>{{this.gender}}</td>
+            <td>{{this.contact}}</td> --}}
+            <td>{{this.status}}</td>
+            <td>{{this.year}}</td>
+            <td>{{this.course}}</td>
+            {{!-- <td>{{this.address}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.zip}}</td> --}}
+            <td>
+                <button class="btn border-0">
+                    <span >
+                        <a href="/auth/updateform/{{this.email}}"><i class="icon fa fa-edit"></i></a>
+                    </span>
+                </button>   
+                <button class="btn border-0" onclick="return confirm('Are you sure you want to delete?');">
+                     <span >
+                        <a href="/auth/deleteuser/{{this.email}}"><i class="icon fa fa-trash"></i></a>
+                    </span>
+                </button>
+            </tr>
+        {{/each}}
+    </table>
+ 
+    </div>
+    
+</body>
+</html>

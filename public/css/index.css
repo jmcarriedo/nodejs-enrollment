@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  color: white;
+  display: grid;
+  place-items: center; 
+  font-size: 14px;
+}
+
+form {
+  background: #034078;
+  color: #fff;
+  font-size: 14px; }
+  form h1 {
+    display: flex;
+    justify-content: center;
+    color: #55ceef;
+    font-size: 26px; }
+  form .input-group {
+    display: flexbox;
+    justify-content: center;
+    width: 100%; }
+    form .input-group input {
+      font-size: 14px; }
+    form .input-group .icon {
+      padding: 10px;
+      background: #001f54;
+      color: #fff;
+      min-width: 50px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    form .input-group .icon-password {
+      padding: 10px;
+      background: white;
+      color: #000;
+      min-width: 50px;
+      text-align: center; }
+    form .input-group .invalid-feedback {
+      color: #ff606e; }
+    form .input-group .valid-feedback {
+      color: #2acc80; }
+  form .btn {
+    font-size: 12px;
+    text-transform: uppercase;
+    background: #001f54; }
+  form .btn-display {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0; }
+    form .btn-display .btn-login {
+      width: 150px;
+      color: #fff; }
+      form .btn-display .btn-login:hover {
+        background: #55ceef; }
+  form .register {
+    display: flex;
+    justify-content: center; }
+    form .register a {
+      color: #55ceef;
+      text-decoration: none; }
+      form .register a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px; }
+
+
+.nav {
+  background-color: #034078;
+}
